@@ -55,6 +55,7 @@ struct CalendarView: View {
             HStack(spacing: 0) {
                 ForEach(daysOfWeek, id: \ .self) { day in
                     Text(day)
+                        .foregroundColor(.primary)
                         .frame(maxWidth: .infinity)
                         .padding(8)
                         .background(Color.gray.opacity(0.2))
@@ -79,7 +80,7 @@ struct CalendarView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.clear)
         .border(Color.gray)
     }
 }
@@ -96,10 +97,7 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
-
+/// Show Light and Dark side by side: click Variants in the Preview canvas and select Color Scheme Variants
 #Preview {
     ContentView()
 }
