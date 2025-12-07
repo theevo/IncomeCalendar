@@ -24,9 +24,3 @@ struct CalendarViewTests {
         }
     }
 }
-
-extension Array {
-    public var notEmpty: Bool {
-        !isEmpty
-    }
-}
