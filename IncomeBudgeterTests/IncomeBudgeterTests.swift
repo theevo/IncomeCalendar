@@ -19,8 +19,5 @@ struct CalendarViewTests {
         let calendarView = await CalendarView()
         let days = await calendarView.daysInMonth()
         #expect(days.first?.dayInt == 1)
-        for day in days {
-            print("\(day.dayInt)")
-        }
     }
 }
