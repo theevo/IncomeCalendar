@@ -30,12 +30,6 @@ struct CalendarView: View {
         var currentWeek: [Int?] = Array(repeating: nil, count: 7)
         for day in days {
             let weekday = calendar.component(.weekday, from: day) - 1 // Sunday = 1
-            if weeks.isEmpty && weekday != 0 {
-                // Fill leading empty days
-                for i in 0..<weekday {
-                    currentWeek[i] = nil
-                }
-            }
             currentWeek[weekday] = calendar.component(.day, from: day)
             if weekday == 6 {
                 weeks.append(currentWeek)

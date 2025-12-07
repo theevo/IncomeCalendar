@@ -20,4 +20,10 @@ struct CalendarViewTests {
         let days = await calendarView.daysInMonth()
         #expect(days.first?.dayInt == 1)
     }
+    
+    @Test func weeks_startWith1() async throws {
+        let calendarView = await CalendarView()
+        let weeks = await calendarView.weeks()
+        #expect(weeks.first?.contains(1) == true)
+    }
 }
