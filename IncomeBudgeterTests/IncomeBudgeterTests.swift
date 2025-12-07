@@ -8,10 +8,18 @@
 import Testing
 @testable import IncomeBudgeter
 
-struct IncomeBudgeterTests {
+struct CalendarViewTests {
 
-    @Test func zero() async throws {
-        Issue.record("Test zero success!")
+    @Test func daysInMonth_notEmpty() async throws {
+        let calendarView = CalendarView()
+        let days = await calendarView.daysInMonth()
+        #expect(days.notEmpty)
     }
 
+}
+
+extension Array {
+    public var notEmpty: Bool {
+        !isEmpty
+    }
 }
