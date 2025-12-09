@@ -126,13 +126,44 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text(label)
-                .font(.title)
+            HStack {
+                Button(action: {
+                    if month == 1 {
+                        month = 12
+                        year -= 1
+                    } else {
+                        month -= 1
+                    }
+                }) {
+                    Image(systemName: "lessthan.circle.fill")
+                        .font(.title)
+                }
+                
+                Spacer()
+                
+                Text(label)
+                    .font(.title)
+                
+                Spacer()
+                
+                Button(action: {
+                    if month == 12 {
+                        month = 1
+                        year += 1
+                    } else {
+                        month += 1
+                    }
+                }) {
+                    Image(systemName: "greaterthan.circle.fill")
+                        .font(.title)
+                }
+            }
+            .padding(.horizontal)
+            
             CalendarView(year: $year, month: $month)
         }
         .padding(24)
-    }
-}
+    }}
 
 #Preview {
     ContentView()
