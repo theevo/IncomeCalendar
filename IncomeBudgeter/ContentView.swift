@@ -105,9 +105,9 @@ struct CalendarView: View {
                 }
             }
         }
-        .padding()
         .background(Color.clear)
         .border(Color.gray)
+        .padding()
     }
 }
 
@@ -116,10 +116,9 @@ struct ContentView: View {
         VStack {
             Text("December 2025")
                 .font(.title)
-                .padding(.bottom, 8)
             CalendarView()
         }
-        .padding()
+        .padding(24)
     }
 }
 
