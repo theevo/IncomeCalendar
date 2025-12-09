@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CalendarView: View {
-    let year: Int = 2025
-    let month: Int = 12
+    @Binding var year: Int
+    @Binding var month: Int
     let calendar = Calendar.current
     let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
@@ -112,11 +112,23 @@ struct CalendarView: View {
 }
 
 struct ContentView: View {
+    @State private var year: Int = 2026
+    @State private var month: Int = 1
+    
+    var label: String {
+        let calendar = Calendar.current
+        let components = DateComponents(year: year, month: month, day: 1)
+        let firstOfMonth = calendar.date(from: components)!
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        return formatter.string(from: firstOfMonth)
+    }
+    
     var body: some View {
         VStack {
-            Text("December 2025")
+            Text(label)
                 .font(.title)
-            CalendarView()
+            CalendarView(year: $year, month: $month)
         }
         .padding(24)
     }
