@@ -27,6 +27,7 @@
 		2736CEC42EE62B8E00B518D0 /* IncomeBudgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncomeBudgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2736CED22EE62B9000B518D0 /* IncomeBudgeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeBudgeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2736CEDC2EE62B9000B518D0 /* IncomeBudgeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeBudgeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		278C86952EE7BA200079007B /* IncomeBudgeterTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = IncomeBudgeterTestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +76,7 @@
 		2736CEBB2EE62B8E00B518D0 = {
 			isa = PBXGroup;
 			children = (
+				278C86952EE7BA200079007B /* IncomeBudgeterTestPlan.xctestplan */,
 				2736CEC62EE62B8E00B518D0 /* IncomeBudgeter */,
 				2736CED52EE62B9000B518D0 /* IncomeBudgeterTests */,
 				2736CEDF2EE62B9000B518D0 /* IncomeBudgeterUITests */,

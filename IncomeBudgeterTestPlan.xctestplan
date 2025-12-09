@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "659CCAEB-7573-4E90-ACA7-3607CE5AF4BA",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:IncomeBudgeter.xcodeproj",
+      "identifier" : "2736CEC32EE62B8E00B518D0",
+      "name" : "IncomeBudgeter"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:IncomeBudgeter.xcodeproj",
+        "identifier" : "2736CED12EE62B9000B518D0",
+        "name" : "IncomeBudgeterTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:IncomeBudgeter.xcodeproj",
+        "identifier" : "2736CEDB2EE62B9000B518D0",
+        "name" : "IncomeBudgeterUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
