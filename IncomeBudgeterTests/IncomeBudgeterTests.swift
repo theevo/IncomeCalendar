@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Testing
 @testable import IncomeBudgeter
 
@@ -13,7 +14,9 @@ struct CalendarViewTests {
     let calendar = Calendar.current
     
     @Test func calendarRangeStartsOneWeekBeforeFirstDayOfMonth() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let (start, _) = calendarView.calendarRange()
         
         let components = calendar.dateComponents([.year, .month, .day], from: start)
@@ -23,7 +26,9 @@ struct CalendarViewTests {
     }
     
     @Test func calendarRangeEndsOneWeekAfterLastDayOfMonth() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let (_, end) = calendarView.calendarRange()
         
         let components = calendar.dateComponents([.year, .month, .day], from: end)
@@ -33,7 +38,9 @@ struct CalendarViewTests {
     }
     
     @Test func calendarRangeStartsOnSunday() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let (start, _) = calendarView.calendarRange()
         
         let weekday = calendar.component(.weekday, from: start)
@@ -41,7 +48,9 @@ struct CalendarViewTests {
     }
     
     @Test func calendarRangeEndsOnSaturday() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let (_, end) = calendarView.calendarRange()
         
         let weekday = calendar.component(.weekday, from: end)
@@ -49,14 +58,18 @@ struct CalendarViewTests {
     }
     
     @Test func allDatesReturnsExactlyFortyNineDays() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let dates = calendarView.allDates()
         
         #expect(dates.count == 49)
     }
     
     @Test func allDatesAreConsecutive() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let dates = calendarView.allDates()
         
         for i in 0..<dates.count - 1 {
@@ -66,14 +79,18 @@ struct CalendarViewTests {
     }
     
     @Test func weeksReturnsSevenWeeks() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let weeks = calendarView.weeks()
         
         #expect(weeks.count == 7)
     }
     
     @Test func eachWeekHasSevenDays() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let weeks = calendarView.weeks()
         
         for week in weeks {
@@ -82,7 +99,9 @@ struct CalendarViewTests {
     }
     
     @Test func firstWeekStartsWithNovemberTwentyThird() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let weeks = calendarView.weeks()
         
         let firstDate = weeks[0][0]!
@@ -93,7 +112,9 @@ struct CalendarViewTests {
     }
     
     @Test func lastWeekEndsWithJanuaryTenth() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let weeks = calendarView.weeks()
         
         let lastDate = weeks[6][6]!
@@ -104,7 +125,9 @@ struct CalendarViewTests {
     }
     
     @Test func decemberFirstIsOnMonday() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let weeks = calendarView.weeks()
         
         let dec1 = weeks[1][1]!
@@ -116,7 +139,9 @@ struct CalendarViewTests {
     }
     
     @Test func decemberThirtyFirstIsOnWednesday() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let weeks = calendarView.weeks()
         
         let dec31 = weeks[5][3]!
@@ -128,35 +153,45 @@ struct CalendarViewTests {
     }
     
     @Test func isInCurrentMonthReturnsTrueForDecemberDates() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let dec15 = calendar.date(from: DateComponents(year: 2025, month: 12, day: 15))!
         
         #expect(calendarView.isInCurrentMonth(dec15) == true)
     }
     
     @Test func isInCurrentMonthReturnsFalseForNovemberDates() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let nov30 = calendar.date(from: DateComponents(year: 2025, month: 11, day: 30))!
         
         #expect(calendarView.isInCurrentMonth(nov30) == false)
     }
     
     @Test func isInCurrentMonthReturnsFalseForJanuaryDates() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let jan5 = calendar.date(from: DateComponents(year: 2026, month: 1, day: 5))!
         
         #expect(calendarView.isInCurrentMonth(jan5) == false)
     }
     
     @Test func isInCurrentMonthReturnsTrueForFirstDayOfMonth() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let dec1 = calendar.date(from: DateComponents(year: 2025, month: 12, day: 1))!
         
         #expect(calendarView.isInCurrentMonth(dec1) == true)
     }
     
     @Test func isInCurrentMonthReturnsTrueForLastDayOfMonth() {
-        let calendarView = CalendarView()
+        let year = 2025
+        let month = 12
+        let calendarView = CalendarView(year: .constant(year), month: .constant(month))
         let dec31 = calendar.date(from: DateComponents(year: 2025, month: 12, day: 31))!
         
         #expect(calendarView.isInCurrentMonth(dec31) == true)
